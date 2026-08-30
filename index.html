@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<!-- saved from url=(0054)file:///C:/Users/lacon/Downloads/parte-limpieza_3.html -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0d5c4a">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Limpieza">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
 <title>Parte de Limpieza</title>
 <style>
   :root{
@@ -180,7 +184,7 @@
 
     <div class="campo">
       <label>Trabajadora</label>
-      <select id="selPersona" onchange="cambioPersona()"><option>María del Águila</option><option value="__nuevo__">➕ Añadir trabajadora…</option></select>
+      <select id="selPersona" onchange="cambioPersona()"></select>
     </div>
     <div class="campo nuevo-persona" id="cajaNuevaP">
       <input type="text" id="nuevaPersona" placeholder="Nombre de la nueva trabajadora">
@@ -188,7 +192,7 @@
 
     <div class="campo">
       <label>Centro de trabajo</label>
-      <select id="selSitio" onchange="cambioSitio()"><option>Transfermovers</option><option>Cubas Giralda</option><option>Ibérica Renovables</option><option>Alcabala</option><option>Asociación Andaluza Elect.</option><option>Casetillas LIDL</option><option>Comunidad Esperanza</option><option>Abog. Laura Selva</option><option>Fedaco</option><option>De campo</option><option value="__nuevo__">➕ Añadir nuevo centro…</option></select>
+      <select id="selSitio" onchange="cambioSitio()"></select>
     </div>
     <div class="campo nuevo-sitio" id="cajaNuevo">
       <input type="text" id="nuevoSitio" placeholder="Nombre del nuevo centro">
@@ -218,7 +222,7 @@
     <div class="campo">
       <label>Firma del cliente</label>
       <div class="firma-caja">
-        <canvas id="firmaCanvas" class="firma-lienzo" width="576" height="148"></canvas>
+        <canvas id="firmaCanvas" class="firma-lienzo"></canvas>
         <span class="firma-hint" id="firmaHint">Firme aquí con el dedo</span>
         <button type="button" class="firma-limpiar" onclick="limpiarFirma()">Borrar</button>
       </div>
@@ -233,7 +237,7 @@
     <div class="filtros">
       <div class="campo">
         <label>Trabajadora</label>
-        <select id="fPersona" onchange="render()"><option>María del Águila</option></select>
+        <select id="fPersona" onchange="render()"></select>
       </div>
       <div class="campo">
         <label>Mes</label>
@@ -242,23 +246,21 @@
     </div>
 
     <div class="barra-prog"><i id="progBar" style="width:0%"></i></div>
-    <div class="prog-tx" id="progTx">0:00 h de 20 h de contrato</div>
+    <div class="prog-tx" id="progTx">0 h de 20 h de contrato</div>
 
     <div class="totales">
-      <div class="tot azul"><div class="n" id="totContrato">0,00€</div><div class="l">Contrato 8,50</div></div>
-      <div class="tot amar"><div class="n" id="totExtra">0,00€</div><div class="l">Extra 7,00</div></div>
-      <div class="tot verde"><div class="n" id="totMes">0,00€</div><div class="l">Total mes</div></div>
+      <div class="tot azul"><div class="n" id="totContrato">0€</div><div class="l">Contrato 8,50</div></div>
+      <div class="tot amar"><div class="n" id="totExtra">0€</div><div class="l">Extra 7,00</div></div>
+      <div class="tot verde"><div class="n" id="totMes">0€</div><div class="l">Total mes</div></div>
     </div>
 
-    <div class="bloque b850" id="bloque850"><div class="btit" onclick="toggleBloque(&#39;bloque850&#39;)">
-         <span class="btit-l"><span class="flecha">▶</span>A 8,50 € · contrato</span><span>0:00 h</span></div><div class="cuerpo"><div class="vacio">Sin horas todavía</div></div></div>
-    <div class="bloque b7" id="bloque7"><div class="btit" onclick="toggleBloque(&#39;bloque7&#39;)">
-         <span class="btit-l"><span class="flecha">▶</span>A 7,00 € · extra</span><span>0:00 h</span></div><div class="cuerpo"><div class="vacio">Aún sin pasar de 20 h</div></div></div>
+    <div class="bloque b850" id="bloque850"></div>
+    <div class="bloque b7" id="bloque7"></div>
   </div>
 
   <div class="tarjeta">
     <h2><span>Registros del mes</span><span id="numReg" style="color:var(--gris);font-weight:600;">0</span></h2>
-    <div id="listaReg"><div class="vacio">Aún no hay registros este mes</div></div>
+    <div id="listaReg"></div>
   </div>
 
 </div>
@@ -649,6 +651,5 @@
   initFirma();
   render();
 </script>
-
-
-</body></html>
+</body>
+</html>
